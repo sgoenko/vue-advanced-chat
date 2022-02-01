@@ -278,24 +278,15 @@ export default {
 
 	computed: {
 		showUsername() {
-			if (
-				!this.usernameOptions.currentUser &&
-				this.message.senderId === this.currentUserId
-			) {
-				return false
-			} else {
-				return this.roomUsers.length >= this.usernameOptions.minUsers
-			}
+      return true
 		},
 		showDate() {
 			return (
-				this.index > 0 &&
 				this.message.date !== this.messages[this.index - 1].date
 			)
 		},
 		messageOffset() {
 			return (
-				this.index > 0 &&
 				this.message.senderId !== this.messages[this.index - 1].senderId
 			)
 		},
