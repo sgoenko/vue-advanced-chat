@@ -327,11 +327,8 @@ export default {
 		const isMobile = detectMobile()
 
 		this.getTextareaRef().addEventListener('keyup', e => {
-			if (e.key === 'Enter' && !e.shiftKey && !this.fileDialog) {
-				if (isMobile) {
-					this.message = this.message + '\n'
-					setTimeout(() => this.onChangeInput())
-				} else if (
+      if ((e.key === 'Enter' || (this.message.length > 0 && this.message.slice(-1) === '\n')) && !this.fileDialog) {
+				if (
 					!this.filteredEmojis.length &&
 					!this.filteredUsersTag.length &&
 					!this.filteredTemplatesText.length

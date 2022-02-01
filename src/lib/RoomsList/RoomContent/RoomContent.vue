@@ -170,7 +170,7 @@ export default {
 
 			if (this.room.lastMessage.username) {
 				return `${this.room.lastMessage.username} - ${content}`
-			} else if (!user || user._id === this.currentUserId) {
+			} else if (!user) {
 				return content
 			}
 
