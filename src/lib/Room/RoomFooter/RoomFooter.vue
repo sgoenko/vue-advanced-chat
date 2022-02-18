@@ -327,7 +327,7 @@ export default {
 		const isMobile = detectMobile()
 
 		this.getTextareaRef().addEventListener('keyup', e => {
-			if (e.key === 'Enter' && !e.shiftKey && !this.fileDialog) {
+			if (e.key === 'Enter' && !this.fileDialog) {
 				if (
 					!this.filteredEmojis.length &&
 					!this.filteredUsersTag.length &&
@@ -335,9 +335,7 @@ export default {
 				) {
 					this.sendMessage()
 				}
-			} else {
-        console.error(e.key, e.shiftKey, this.fileDialog, this.filteredEmojis.length, this.filteredUsersTag.length, this.filteredTemplatesText.length)
-      }
+			}
 
 			setTimeout(() => {
 				this.updateFooterLists()

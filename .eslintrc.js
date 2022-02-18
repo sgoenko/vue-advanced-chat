@@ -5,7 +5,7 @@ module.exports = {
 	},
 	extends: ['standard', 'plugin:vue/recommended', '@vue/typescript'],
 	rules: {
-		'no-console': process.env.NODE_ENV === 'production' ? 'off' : 'off',
+		'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 		'vue/no-unused-properties': [
 			'error',
