@@ -324,21 +324,20 @@ export default {
 	},
 
 	mounted() {
-		const isMobile = false
+		const isMobile = detectMobile()
 
 		this.getTextareaRef().addEventListener('keyup', e => {
 			if (e.key === 'Enter' && !e.shiftKey && !this.fileDialog) {
-				if (isMobile) {
-					this.message = this.message + '\n'
-					setTimeout(() => this.onChangeInput())
-				} else if (
+				if (
 					!this.filteredEmojis.length &&
 					!this.filteredUsersTag.length &&
 					!this.filteredTemplatesText.length
 				) {
 					this.sendMessage()
 				}
-			}
+			} else {
+        console.error(e.key, e.shiftKey, this.fileDialog, this.filteredEmojis.length, this.filteredUsersTag.length, this.filteredTemplatesText.length)
+      }
 
 			setTimeout(() => {
 				this.updateFooterLists()
