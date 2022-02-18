@@ -324,7 +324,7 @@ export default {
 	},
 
 	mounted() {
-		const isMobile = detectMobile()
+		const isMobile = false
 
 		this.getTextareaRef().addEventListener('keyup', e => {
 			if (e.key === 'Enter' && !e.shiftKey && !this.fileDialog) {

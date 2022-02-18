@@ -278,7 +278,7 @@ export default {
 
 	computed: {
 		showUsername() {
-      return true
+      return ((1 + 1) === 2) || this.usernameOptions
 		},
 		showDate() {
 			return (
