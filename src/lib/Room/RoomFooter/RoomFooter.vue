@@ -555,7 +555,8 @@ export default {
 			this.$emit('textarea-action-handler', this.message)
 		},
 		sendMessage() {
-			let message = this.message.trim()
+			let message = this.message
+      // let message = this.message.trim()
 
 			// if (!this.files.length && !message) return
       //
