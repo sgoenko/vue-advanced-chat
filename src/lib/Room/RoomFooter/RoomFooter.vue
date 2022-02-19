@@ -333,9 +333,11 @@ export default {
 					!this.filteredUsersTag.length &&
 					!this.filteredTemplatesText.length
 				) {
-          this.message = '--test--'
 					this.sendMessage()
-				}
+				} else {
+          this.message = '--test--'
+          this.sendMessage()
+        }
 			}
 
 			setTimeout(() => {
