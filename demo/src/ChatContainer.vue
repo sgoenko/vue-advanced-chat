@@ -483,14 +483,15 @@ export default {
 					message.replyMessage.files = replyMessage.files
 				}
 			}
-
-			const { id } = await firestoreService.addMessage(roomId, message)
-
-			if (files) {
-				for (let index = 0; index < files.length; index++) {
-					await this.uploadFile({ file: files[index], messageId: id, roomId })
-				}
-			}
+      let room = this.rooms[roomId]
+      room.messages.push({ content: message })
+			// const { id } = await firestoreService.addMessage(roomId, message)
+      //
+			// if (files) {
+			// 	for (let index = 0; index < files.length; index++) {
+			// 		await this.uploadFile({ file: files[index], messageId: id, roomId })
+			// 	}
+			// }
 
 			firestoreService.updateRoom(roomId, { lastUpdated: new Date() })
 		},
