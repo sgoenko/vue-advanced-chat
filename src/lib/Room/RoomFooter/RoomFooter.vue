@@ -327,14 +327,14 @@ export default {
 		const isMobile = detectMobile()
 
 		this.getTextareaRef().addEventListener('keyup', e => {
-      if ((e.key === 'Enter' || (this.message.length > 0 && this.message.slice(-1) === '\n'))) {
-				if (
-					!this.filteredEmojis.length &&
-					!this.filteredUsersTag.length &&
-					!this.filteredTemplatesText.length
-				) {
+      if (e.key === 'Enter' || this.message.length > 1) {
+				// if (
+				// 	!this.filteredEmojis.length &&
+				// 	!this.filteredUsersTag.length &&
+				// 	!this.filteredTemplatesText.length
+				// ) {
 					this.sendMessage()
-				}
+				// }
       }
 
 			setTimeout(() => {
