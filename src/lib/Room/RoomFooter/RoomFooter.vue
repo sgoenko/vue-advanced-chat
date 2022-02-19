@@ -571,28 +571,28 @@ export default {
 
 			const files = this.files.length ? this.files : null
 
-			if (this.editedMessage._id) {
-				if (
-					this.editedMessage.content !== message ||
-					this.editedMessage.files?.length ||
-					this.files.length
-				) {
-					this.$emit('edit-message', {
-						messageId: this.editedMessage._id,
-						newContent: message,
-						files: files,
-						replyMessage: this.messageReply,
-						usersTag: this.selectedUsersTag
-					})
-				}
-			} else {
+			// if (this.editedMessage._id) {
+			// 	if (
+			// 		this.editedMessage.content !== message ||
+			// 		this.editedMessage.files?.length ||
+			// 		this.files.length
+			// 	) {
+			// 		this.$emit('edit-message', {
+			// 			messageId: this.editedMessage._id,
+			// 			newContent: message,
+			// 			files: files,
+			// 			replyMessage: this.messageReply,
+			// 			usersTag: this.selectedUsersTag
+			// 		})
+			// 	}
+			// } else {
 				this.$emit('send-message', {
 					content: message,
 					files: files,
 					replyMessage: this.messageReply,
 					usersTag: this.selectedUsersTag
 				})
-			}
+			// }
 
 			this.resetMessage(true)
 		},
