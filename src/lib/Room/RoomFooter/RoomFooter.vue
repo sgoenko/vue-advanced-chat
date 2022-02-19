@@ -334,11 +334,8 @@ export default {
 					!this.filteredTemplatesText.length
 				) {
 					this.sendMessage()
-				} else {
-          this.message = '--test--'
-          this.sendMessage()
-        }
-			}
+				}
+      }
 
 			setTimeout(() => {
 				this.updateFooterLists()
@@ -560,9 +557,9 @@ export default {
 		sendMessage() {
 			let message = this.message.trim()
 
-			if (!this.files.length && !message) return
-
-			if (this.isFileLoading) return
+			// if (!this.files.length && !message) return
+      //
+			// if (this.isFileLoading) return
 
 			this.selectedUsersTag.forEach(user => {
 				message = message.replace(
