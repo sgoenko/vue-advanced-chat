@@ -557,42 +557,42 @@ export default {
 		sendMessage() {
 			let message = this.message.trim()
 
-			if (!this.files.length && !message) return
-
-			if (this.isFileLoading) return
-
-			this.selectedUsersTag.forEach(user => {
-				message = message.replace(
-					`@${user.username}`,
-					`<usertag>${user._id}</usertag>`
-				)
-			})
-
-			const files = this.files.length ? this.files : null
-
-			if (this.editedMessage._id) {
-				if (
-					this.editedMessage.content !== message ||
-					this.editedMessage.files?.length ||
-					this.files.length
-				) {
-					this.$emit('edit-message', {
-						messageId: this.editedMessage._id,
-						newContent: message,
-						files: files,
-						replyMessage: this.messageReply,
-						usersTag: this.selectedUsersTag
-					})
-				}
-			} else {
-				this.$emit('send-message', {
-					content: message,
-					files: files,
-					replyMessage: this.messageReply,
-					usersTag: this.selectedUsersTag
-				})
-			}
-
+			// if (!this.files.length && !message) return
+      //
+			// if (this.isFileLoading) return
+      //
+			// this.selectedUsersTag.forEach(user => {
+			// 	message = message.replace(
+			// 		`@${user.username}`,
+			// 		`<usertag>${user._id}</usertag>`
+			// 	)
+			// })
+      //
+			// const files = this.files.length ? this.files : null
+      //
+			// if (this.editedMessage._id) {
+			// 	if (
+			// 		this.editedMessage.content !== message ||
+			// 		this.editedMessage.files?.length ||
+			// 		this.files.length
+			// 	) {
+			// 		this.$emit('edit-message', {
+			// 			messageId: this.editedMessage._id,
+			// 			newContent: message,
+			// 			files: files,
+			// 			replyMessage: this.messageReply,
+			// 			usersTag: this.selectedUsersTag
+			// 		})
+			// 	}
+			// } else {
+			// 	this.$emit('send-message', {
+			// 		content: message,
+			// 		files: files,
+			// 		replyMessage: this.messageReply,
+			// 		usersTag: this.selectedUsersTag
+			// 	})
+			// }
+      this.$emit('send-message', message)
 			this.resetMessage(true)
 		},
 		// eslint-disable-next-line vue/no-unused-properties

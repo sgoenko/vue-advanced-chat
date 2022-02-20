@@ -67,7 +67,7 @@
 				@toggle-rooms-list="toggleRoomsList"
 				@room-info="roomInfo"
 				@fetch-messages="fetchMessages"
-				@send-message="sendMessage"
+				@send-message="$emit('send-message', $event)"
 				@edit-message="editMessage"
 				@delete-message="deleteMessage"
 				@open-file="openFile"
@@ -360,9 +360,6 @@ export default {
 		},
 		fetchMessages(options) {
 			this.$emit('fetch-messages', { room: this.room, options })
-		},
-		sendMessage(message) {
-			this.$emit('send-message', { ...message, roomId: this.room.roomId })
 		},
 		editMessage(message) {
 			this.$emit('edit-message', { ...message, roomId: this.room.roomId })
